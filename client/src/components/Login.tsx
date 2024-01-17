@@ -128,7 +128,7 @@ const Login = ({ setIsLogin, setValidationErrors }: Login_type) => {
                         <span className="cirlce5"></span>
                         <span className="text">Iniciar sesión</span>
                     </button>
-                    <button className="authentication__submit demo-user__butoon" onClick={demoUser}>
+                    <button className="authentication__submit demo-user__button" onClick={demoUser}>
                         <span className="circle1"></span>
                         <span className="cirlce2"></span>
                         <span className="cirlce3"></span>
@@ -138,7 +138,7 @@ const Login = ({ setIsLogin, setValidationErrors }: Login_type) => {
                     </button>
                     <div className="create__account-btn">
                         <span>¿No tenes cuenta?</span>
-                        <button className="authentication_swap" onClick={() => handleSwap()}>Registrarse</button>
+                        <button className="authentication__swap" onClick={() => handleSwap()}>Registrarse</button>
                     </div>
                 </form>}
         </>
