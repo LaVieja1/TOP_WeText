@@ -126,7 +126,7 @@ const Login = ({ setIsLogin, setValidationErrors }: Login_type) => {
                         <span className="cirlce3"></span>
                         <span className="cirlce4"></span>
                         <span className="cirlce5"></span>
-                        <span className="text">Iniciar Sesión</span>
+                        <span className="text">Iniciar sesión</span>
                     </button>
                     <button className="authentication__submit demo-user__butoon" onClick={demoUser}>
                         <span className="circle1"></span>
