@@ -6,8 +6,11 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
+// ROUTES IMPORT
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const userRouter = require('./routes/user');
+const chatRouter = require('./routes/chat');
+const messageRouter = require('./routes/message');
 
 const app = express();
 
@@ -35,8 +38,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// ROUTES MIDDLEWARE
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api/user', userRouter);
+app.use('/api/chat', chatRouter);
+app.use('/api/message', messageRouter);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
