@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+
+.auth__container {
+    display: flex;
+    flex-direction: row;
+    max-height: 100vh;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+}
+
+.auth__container img {
+    height: 100%;
+    width: auto;
+    max-width: 150px;
+    display: none;
+}
+
+.authentication__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    overflow-y: auto;
+    background-color: ;
+}
