@@ -38,7 +38,7 @@ export const checkLocalStorage = () => {
     return true;
 }
 
-export const updateUnseenMessasges = (idUnseenMessages: string[], setIdUnseenMessages: React.Dispatch<React.SetStateAction<string[]>>, token: string) => {
+export const updateUnseenMessages = (idUnseenMessages: string[], setIdUnseenMessages: React.Dispatch<React.SetStateAction<string[]>>, token: string) => {
     fetch(`${API}/message/unseen`, {
         method: 'POST',
         headers: {
