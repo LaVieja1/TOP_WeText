@@ -26,7 +26,7 @@ const ContactsCarousel = () => {
         navigate('/');
         return <></>
     }
-    const userId = JSON.parse(localStorage.getItem('idInTouch') || "");
+    const userId = JSON.parse(localStorage.getItem('idWeText') || "");
 
     const Contacts = () => {
         return (
