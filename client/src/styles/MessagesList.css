@@ -1,0 +1,61 @@
+.message__list{
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    padding: 0px 10px;
+    position: relative;
+}
+
+.create__chat {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(194, 194, 194);
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.new__chat-svg{
+    fill: black;
+    height: 20px;
+    width: 20px;
+}
+
+.message__list .add__btn {
+    display: none;
+}
+
+.message__list .add__btn .svg__search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.chats-msgList .header{
+    display: none;
+}
+
+@media (min-width: 1200px) {
+    .message__list {
+        height: 100%;
+        overflow-y: auto !important;
+    }
+
+    .message__list .add__btn {
+        bottom: 10px;
+        right: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        font-size: 16px;
+    }
+}
