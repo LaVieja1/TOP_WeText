@@ -60,29 +60,29 @@ exports.create_user = [
 ]
 
 exports.login = [
-    body('email', 'El email debe ser valido.').isEmail()
-    .trim()
-    .escape()
-    .normalizeEmail(),
+    body('email', 'El email debe ser una valido.').isEmail()
+        .trim()
+        .escape()
+        .normalizeEmail(),
 
     async (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) return res.json(errors.array());
         try {
-            const user = await User.friends({ 'email': req.body.email }).exec();
-            if (!user) return res.json([{ msg: 'Email no existe' }]);
+            const user = await User.findOne({ 'email': req.body.email }).exec();
+            if (!user) return res.json([{ msg: 'El email no existe.' }])
             bcryptjs.compare(req.body.pwd, user.password, (err, passwordMatch) => {
                 if (passwordMatch) {
                     jwt.sign({ user }, `${process.env.SECRET_KEY}`, { expiresIn: '1d' }, (err, token) => {
-                        if (err) return res.json(err);
-                        return res.json({ token, id: user._id });
+                        if (err) return res.json(err)
+                        return res.json({ token, id: user._id })
                     })
                 } else {
                     return res.json([{ msg: 'Contraseña incorrecta' }]);
                 }
             })
         } catch (err) {
-            return res.json(err);
+            return res.json(err)
         }
     }
 ]

@@ -17,3 +17,5 @@ router.get('/:userId', validate_token, userController.get_user_data);
 
 // UPDATE USER
 router.post('/:userId', validate_token, userController.update_user);
+
+module.exports = router;

@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
+const cors = require('cors');
 require('dotenv').config();
 
 // ROUTES IMPORT
@@ -25,8 +26,8 @@ mongoose.set('strictQuery', false);
 const mongoDB = process.env.MONGODB_URL;
 mongoose.connect(mongoDB);
 const db = mongoose.connection;
-console.log('Conectado a mongoDB');
 db.on('error', console.error.bind((console, 'MongoDb error de conexión')));
+console.log('Conectado a mongoDB');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
