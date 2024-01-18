@@ -1,37 +1,43 @@
-.loader{
-    background:
-        linear-gradient(0.25turn, transparent, rgb(165, 165, 165), transparent),
-        linear-gradient(rgb(145, 145, 145), rgb(145, 145, 145));
-    background-color: #fff;
-    background-repeat: no-repeat;
-    background-position: -315px 0, 0 0, 15px 140px, 65px 145px;
-    animation: loading 1.5s infinite;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.left,
-.right{
+.toggle {
+    --width-toggle: 50px;
+    --height-toggle: calc(var(--width-toggle)/2);
     position: relative;
-    margin: 10px 0px;
-    font-size: 0.9rem;
-    padding: 20px;
-    padding-bottom: 25px;
-    border-radius: 10px;
+    display: block;
+    width: var(--width-toggle);
+    height: var(--height-toggle);
+    border-radius: var(--width-toggle);
+    transition: 300ms ease-in-out;
+    cursor: pointer;
+    background-color: rgb(226, 226, 226);
+    box-shadow: inset 0 2px 60px rgba(0,0,0,0.1),
+                inset 0 2px 8px rgba(0, 0, 0, 0.1),
+                inset 0 -4px 4px rgba(0, 0, 0, 0.05);
 }
 
-.left {
-    align-self: flex-start;
-    margin-left: 10px;
+.indicator {
+    position: absolute;
+    width: calc(var(--width-toggle)/2);
+    height: calc(var(--width-toggle)/2);
+    background: linear-gradient(to bottom, #eaeaea, #f9f9f9);
+    border-radius: 50%;
+    transform: scale(0.9);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1),
+                inset 0 4px 4px rgba(255, 255, 255, 1),
+                inset 0 -4px 4px rgba(255, 255, 255, 1);
+    transition: transform 300ms ease-in-out;
 }
 
-.right {
-    align-self: flex-end;
-    margin-right: 10px;
+.toggle.active .indicator {
+    transform: translate(calc(var(--width-toggle)/2));
+    background: linear-gradient(to bottom, #444, #222);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5),
+                inset 0 4px 4px rgba(255, 255, 255, 0.2),
+                inset 0 -4px 4px rgba(255, 255, 255, 0.2);
 }
 
-@keyframes loading {
-    to {
-        background-position: 315px 0, 0 0, 15px 140px, 65px 145px;
-    }
+.toggle.active {
+    background-color: #454648;
+    box-shadow: inset 0 8px 60px rgba(22,27,34,0.1),
+                inset 0 8px 8px rgba(0, 0, 0, 0.1),
+                inset 0 -4px 4px rgba(0, 0, 0, 0.1);
 }
