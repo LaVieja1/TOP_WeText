@@ -1,0 +1,91 @@
+.message__form {
+    max-width: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    position: sticky;
+    bottom: 0px;
+    border: none;
+    outline: none;
+    margin: 10px 0px;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    background-color: var(--background-color);
+}
+
+.message__input {
+    width: 100%;
+    background-color: transparent;
+    color: var(--name-color);
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: var(--message-input-bg);
+    max-width: 300px;
+}
+
+.send__message{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+}
+
+.send__message svg {
+    height: 45px;
+    width: 45px;
+    fill: var(--svg-fill-color);
+}
+
+.image_svg {
+    width: 45px;
+    height: auto;
+    fill: var(--svg-fill-color);
+}
+
+.input__image-msg {
+    display: none;
+}
+
+.message__img-label {
+    height: 100%;
+    display: flex;
+}
+
+.hide__input-img {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+@media (min-width: 1200px) {
+    .message__input {
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .message__form {
+        padding: 0px 15px;
+    }
+
+    .message__input {
+        padding: 8px 15px;
+    }
+
+    .image_svg,
+    .send__message svg {
+        width: 40px;
+        height: auto;
+        fill: rgb(58, 58, 58);
+    }
+}
