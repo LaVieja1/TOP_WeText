@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
-import { Socket } from "socket.io-client";
+import { Socket } from "socket.io-client"
 
 export interface user_type {
     image: string,
     name: string,
-    _id: string,
+    _id: string
 }
 
 interface chatData_type {
@@ -17,13 +17,13 @@ interface chatData_type {
 export interface chat {
     _id: string,
     name: string,
-    pictureUrl: string,
+    pictureUrl: string
 }
 
 export interface chats_type {
     _id: string,
     users: chat[],
-    lastMsg: message,
+    lastMsg: message
 }
 
 export interface chat_object {
@@ -38,13 +38,13 @@ export interface message {
     _id: string,
     createdAt: string,
     chat: chat,
-    image: string,
+    image: string
 }
 
 export interface unseenMessage {
     _id: string,
     chat: string,
-    sender: string,
+    sender: string
 }
 
 export interface chatContext_types {
@@ -53,7 +53,7 @@ export interface chatContext_types {
     chats: chat_object,
     setUser: React.Dispatch<React.SetStateAction<user_type>>,
     setChatData: React.Dispatch<React.SetStateAction<chatData_type>>,
-    setChats: React.Dispatch<React.SetStateAction<chat_object>>,
+    setChats: React.Dispatch<React.SetStateAction<chat_object>>
 }
 
 export interface messagesContext_type {
