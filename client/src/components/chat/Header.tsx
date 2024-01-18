@@ -2,7 +2,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { chatContext, generalContext, messagesContext } from '../../App';
-import { API, checkLocalStorage, updateUnseenMessasges } from "../../assets/constants";
+import { API, checkLocalStorage, updateUnseenMessages } from "../../assets/constants";
 import '../../styles/chat/Header.css';
 import Contact from "../Contact";
 
@@ -21,7 +21,7 @@ const Header = () => {
         setOpenChat(false);
         setChatData(prevData => {return{...prevData, id: ''}});
         if (!idUnseenMessages.length) return;
-        updateUnseenMessasges(idUnseenMessages, setIdUnseenMessages, token);
+        updateUnseenMessages(idUnseenMessages, setIdUnseenMessages, token);
     }
 
     return (

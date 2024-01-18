@@ -75,8 +75,8 @@ const Login = ({ setIsLogin, setValidationErrors }: Login_type) => {
 
     const demoUser = async (e: FormEvent) => {
         e.preventDefault();
-        const pwd = 'DemoPassword02';
-        const email = 'WeText@gmail.com';
+        const pwd = 'PruebaDemo1';
+        const email = 'prueba@email.com';
         const response = await fetch(`${API}/user/login`, {
             method: 'POST',
             headers: {
