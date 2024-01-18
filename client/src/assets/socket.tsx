@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { io, Socket } from 'socket.io-client';
 import { checkLocalStorage } from './constants';
 
+// TODO: CAMBIAR POR ONRENDER
 const SocketURL = 'http://localhost:3000'
 
 export function useSocket(userId = '') {
