@@ -4,12 +4,13 @@ import { useNavigate } from 'react-router-dom'
 import { chatContext } from '../App'
 import { checkLocalStorage } from '../assets/constants'
 import '../styles/MessagesList.css'
-import { unseenMessage, user_type } from '../TypeScript/typesApp';
+import { unseenMessage, user_type } from '../TypeScript/typesApp'
 import AddButton from './AddButton'
 import ChatCard from './ChatCard'
 import HeaderMain from './HeaderMain'
 
 const MessagesList = () => {
+
     const navigate = useNavigate()
     const { chats } = useContext(chatContext);
     if(!checkLocalStorage()) {
@@ -22,7 +23,7 @@ const MessagesList = () => {
         const date = new Date(timestamp);
         const currentDate = new Date();
 
-        // Extraer day, month and year of both date
+        // Extraer el día, mes y año de ambas fechas
         const messageDay = date.getDate();
         const messageMonth = date.getMonth();
         const messageYear = date.getFullYear();
@@ -46,29 +47,30 @@ const MessagesList = () => {
 
     return (
         <section className='message__list main__container'>
-            <HeaderMain />
-            <AddButton text={'Añadir usuario'} />
-                {Object.keys(chats).length ? Object.keys(chats).map((key) => {
-                    const chat = chats[key]
-                    const {_id, users, updatedAt} = chat
-                    const lastMessage = chat.lastMsg ? chat.lastMsg.content : false
-                    //Just send message == object, otherwise string
-                    let senderId = chat.lastMsg ? chat.lastMsg.sender : ''
-                    senderId = typeof senderId === 'object' ? senderId._id : senderId
-                    const friendData = users.filter((user: user_type) => user._id !== userId)
-                    const {name, pictureUrl} = friendData[0]
-                    //Ids of unseen messages
-                    const unseen = chat.unseen
-                    .filter((msg: unseenMessage) => msg.sender !== userId)
-                    .map((msg: unseenMessage) => msg._id)
-                    //Format time
-                    const formattedTime = convertTimeStamp(updatedAt)
-                        return (
-                            <ChatCard key={`ChatCard-${_id}`} name={name} picture={pictureUrl} chatId={_id} lastMessage={lastMessage} unseen={unseen} hour={formattedTime} senderId={senderId} />
-                        );
-                }) : 'No hay chats'}
+        <HeaderMain />
+        <AddButton text={'Añadir usuario'} />
+            {Object.keys(chats).length ? Object.keys(chats).map((key) => {
+            const chat = chats[key]
+            const {_id, users, updatedAt} = chat
+            const lastMessage = chat.lastMsg ? chat.lastMsg.content : false
+            // Si el mensaje se acaba de enviar (MessageInput) entonces sender es un objeto, de lo contrario contiene un string.
+            let senderId = chat.lastMsg ? chat.lastMsg.sender : ''
+            senderId = typeof senderId === 'object' ? senderId._id : senderId
+            const friendData = users.filter((user: user_type) => user._id !== userId)
+            const {name, pictureUrl} = friendData[0]
+            // Se recuperan solos los ids de los mensajes no leídos que no fueron creados por el usuario actual
+            // para solo tomar en la cuenta los mensajes de la otra persona en el chat.
+            const unseen = chat.unseen
+            .filter((msg: unseenMessage) => msg.sender !== userId)
+            .map((msg: unseenMessage) => msg._id)
+            // Se formatea el tiempo en el que el chat se actualizó por última vez
+            const formattedTime = convertTimeStamp(updatedAt)
+                return(
+                    <ChatCard key={`ChatCard-${_id}`} name={name} picture={pictureUrl} chatId={_id} lastMessage={lastMessage} unseen={unseen} hour={formattedTime} senderId={senderId}/>
+                )
+            }) : 'No hay chats'}
         </section>
-    );
+    )
 }
 
-export default MessagesList;
+export default MessagesList
