@@ -1,0 +1,73 @@
+.message__container {
+    flex-direction: column;
+    color: rgb(0, 0, 0);
+    max-width: 300px;
+    min-width: 200px;
+    width: auto;
+    position: relative;
+    word-wrap: break-word;
+}
+
+.left,
+.right {
+    position: relative;
+    margin: 10px 0px;
+    font-size: 0.9rem;
+    padding: 20px;
+    padding-bottom: 25px;
+    border-radius: 10px;
+}
+
+.message__container.left::before,
+.message__container.right::before {
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+    border: 15px solid transparent;
+    top: 0px;
+}
+
+.message__container.left::before {
+    border-top: 25px solid rgb(83, 119, 234);
+    transform: rotate(0deg);
+    left: -10px;
+}
+
+.message__container.right::before {
+    border-top: 26px solid rgb(154, 210, 126);
+    transform: rotate(0deg);
+    right: -10px;
+}
+
+.left {
+    background-color: rgb(83, 119, 234);
+    align-self: flex-start;
+}
+
+.right {
+    background-color: rgb(154, 210, 126);
+    align-self: flex-end;
+}
+
+.left::before,
+.right::before {
+    content: '';
+    position: absolute;
+}
+
+.message__hour {
+    position: absolute;
+    bottom: 5px;
+    right: 15px;
+}
+
+.message__container img {
+    margin-bottom: 16px;
+}
+
+@media (min-width: 500px) {
+    .message__container {
+        max-width: 30vw;
+        min-width: 320px;
+    }
+}
