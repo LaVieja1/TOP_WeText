@@ -113,7 +113,7 @@ const SignUp = ({setIsLogin, setValidationErrors}: SignUp_type) => {
                 <span className="text">Registrarse</span>
             </button>
             <div className="create__account-btn">
-                <span>¿Ya tenes una cuenta?</span>
+                <span>¿Ya tenés una cuenta?</span>
                 <button className="authentication__swap" onClick={() => handleSwap()}>Iniciar sesión</button>
             </div>
         </form>

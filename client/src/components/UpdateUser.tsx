@@ -11,7 +11,7 @@ const UpdateUser = () => {
     const [isDark,] = useDarkMode();
 
     useEffect(() => {
-        if (!checkLocalStorage() || !localStorage.getItem('userdata')) {
+        if (!checkLocalStorage() || !localStorage.getItem('userData')) {
             navigate('/');
             return undefined;
         }

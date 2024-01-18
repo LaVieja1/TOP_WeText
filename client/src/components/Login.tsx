@@ -137,8 +137,8 @@ const Login = ({ setIsLogin, setValidationErrors }: Login_type) => {
                         <span className="text">Entrar como invitado</span>
                     </button>
                     <div className="create__account-btn">
-                        <span>¿No tenes cuenta?</span>
-                        <button className="authentication__swap" onClick={() => handleSwap()}>Registrarse</button>
+                        <span>¿No tenés cuenta?</span>
+                        <button className="authentication__swap" onClick={() => handleSwap()}>Registrate</button>
                     </div>
                 </form>}
         </>
