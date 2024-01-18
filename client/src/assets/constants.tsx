@@ -34,7 +34,7 @@ export const loadingParams = [
 ]
 
 export const checkLocalStorage = () => {
-    if (!localStorage.getItem('token') || !localStorage.getItem('idInTouch')) return false;
+    if (!localStorage.getItem('token') || !localStorage.getItem('idWeText')) return false;
     return true;
 }
 

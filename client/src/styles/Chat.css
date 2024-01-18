@@ -1,0 +1,47 @@
+.chat__container{
+    display: flex;
+    height: 100vh;
+    max-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: var(--background-color);
+    position: fixed; /*Ayuda a mantener el Chat siempre dentro del campo de vista de la aplicación. Si se quita, el chat aparece hasta abajo siempre incluso sin
+    abrir un chat. */
+    top: 0;
+    z-index: 1005;
+}
+
+.loading__container{
+    overflow: auto;
+}
+
+.styles_scrollable-div__prSCv,
+.loading__container {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10px;
+    overflow-x: hidden;
+}
+
+.chat__container .arrow-left{
+    display: none;
+}
+
+
+@media (max-width: 1200px) {
+    .chat__container{
+        transform: translateY(100%);
+        transition: transform 200ms ease-in-out;
+    }
+
+    .show-chat{
+        transform: translateY(0%);
+    }
+
+    .chat__container .arrow-left{
+        display: flex;
+    }
+}

@@ -15,7 +15,7 @@ const Contact = ({ picture = '', name = '', id = '', added = false }) => {
             return undefined;
         }
         const token = JSON.parse(localStorage.getItem('token') || '');
-        const userId = JSON.parse(localStorage.getItem('idInTouch') || '');
+        const userId = JSON.parse(localStorage.getItem('idWeText') || '');
         if (userId === id) return;
         const chat = await AccessChat(token, id);
         setUpdateChats(prev => !prev);

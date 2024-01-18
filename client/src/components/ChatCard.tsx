@@ -19,7 +19,7 @@ const ChatCard = ({picture, name, chatId, lastMessage, unseen, hour, senderId}: 
     const { setChatData, setChats } = useContext(chatContext)
     const { setMessages, idUnseenMessages, setIdUnseenMessages } = useContext(messagesContext)
     const { setOpenChat, socket, setIsOpenForTheFirstTime } = useContext(generalContext)
-    const userId = JSON.parse(localStorage.getItem('idInTouch') || "");
+    const userId = JSON.parse(localStorage.getItem('idWeText') || "");
     const isOwner = userId === senderId
 
     const navigate = useNavigate()
