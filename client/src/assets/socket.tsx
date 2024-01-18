@@ -1,21 +1,22 @@
-import { useState, useEffect } from "react";
-import { io, Socket } from "socket.io-client";
-import { checkLocalStorage } from "./constants";
+// socket.js
+import { useState, useEffect } from 'react';
+import { io, Socket } from 'socket.io-client';
+import { checkLocalStorage } from './constants';
 
-// TODO: CAMBIAR POR ONRENDER.COM
-const SocketURL = 'http://localhost:3000';
+const SocketURL = 'https://in-touch-io.onrender.com'
+// const SocketURL = 'http://localhost:3000'
 
 export function useSocket(userId = '') {
     const [socket, setSocket] = useState<Socket | null>(null);
 
     useEffect(() => {
-        const newSocket = io(SocketURL, {
-            transports: ['websocket', 'polling', 'flashpocket']
+            const newSocket = io(SocketURL, {
+            transports: ['websocket', 'polling', 'flashsocket']
         });
 
         newSocket.emit("setup", userId);
         newSocket.on("connection", () => {
-            console.log("Cui cui");
+            console.log('Cui cui');
         });
 
         setSocket(newSocket);
@@ -26,8 +27,8 @@ export function useSocket(userId = '') {
     }, []);
 
     useEffect(() => {
-        if (!checkLocalStorage()) return;
-        const userId = JSON.parse(localStorage.getItem('WeText') || '');
+        if(!checkLocalStorage()) return
+        const userId = JSON.parse(localStorage.getItem('idWeText') || '');
         const newSocket = io(SocketURL, {
             transports: ['websocket', 'polling', 'flashsocket']
         });
@@ -40,8 +41,8 @@ export function useSocket(userId = '') {
         setSocket(newSocket);
 
         return () => {
-            newSocket.disconnect(); // Disconnect socket when component dismonts
-        }
+            newSocket.disconnect(); // Asegurarse de desconectar el socket cuando el componente se desmonte
+        };
     }, []);
 
     return socket;
