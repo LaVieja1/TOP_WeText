@@ -4,7 +4,8 @@ import { io, Socket } from 'socket.io-client';
 import { checkLocalStorage } from './constants';
 
 // TODO: CAMBIAR POR ONRENDER
-const SocketURL = 'http://localhost:3000'
+//const SocketURL = 'http://localhost:3000'
+const SocketURL = 'https://top-wetext-api.onrender.com'
 
 export function useSocket(userId = '') {
     const [socket, setSocket] = useState<Socket | null>(null);

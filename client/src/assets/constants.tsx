@@ -1,6 +1,7 @@
 import React from "react";
 
-export const API = 'http://localhost:3000/api';
+//export const API = 'http://localhost:3000/api';
+export const API = 'https://top-wetext-api.onrender.com/api';
 
 export const AccessChat = async (token = '', id = '') => {
     if (token.length === 0) {
