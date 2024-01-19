@@ -1,4 +1,4 @@
-import '../../styles/Loaders/ChatLoader.css';
+import '../../styles/loaders/SearchLoader.css';
 
 const SearchLoader = () => {
     return (
