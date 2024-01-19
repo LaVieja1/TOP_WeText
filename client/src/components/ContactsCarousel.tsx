@@ -46,7 +46,7 @@ const ContactsCarousel = () => {
     return (
         <div className='contacts__carousel main__container'>
             <Slider {...settings} className='carousel'>
-                <AddButton text={'Add'} />
+                <AddButton text={'Añadir'} />
                 {Contacts()}
             </Slider>
         </div>
